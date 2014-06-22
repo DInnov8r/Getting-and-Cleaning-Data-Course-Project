@@ -2,7 +2,7 @@
 
 This project creates a tidy dataset from smartphone sensor data from The Machine Learning Repository at The University of California Irvine (UCI). The Human Activity Recognition database was built from the recordings of 30 subjects performing activities of daily living while carrying a waist-mounted smartphone with embedded inertial sensors.
 
-#### Running the script
+#### How to run the script to generate the tidy dataset
 
 - Clone this repository
 - Download and extract the [dataset](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
