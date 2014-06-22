@@ -123,13 +123,39 @@ The algorithms in run_analysis.R perform the following steps to transform and ul
 4. Appropriately label the data set with descriptive activity names.
 5. Create a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-./UCI HAR Dataset/activity_labels.txt
-./UCI HAR Dataset/features.txt
 
-X_test.txt
-y_test.txt
-subject_test.txt
+First, the mapping between activity labels, such as *WALKING* and *SITTING*, and the activity ids used in the participant datasets us read from the file *./UCI HAR Dataset/activity\_labels.txt* using read.table into an R data frame called *activity\_labels*.
 
-X_train.txt
-y_train.txt
-subject_train.txt
+Second, the mapping between feature labels, such as *fBodyBodyAccJerkMag-meanFreq()*, and the ids used in the participant datasets is read from the file *./UCI HAR Dataset/features.txt* using read.table into an R data frame called *features*.
+
+Next, test activity data is read from y\_test.txt into an R data frame called *y\_data*. Each row of this dataset contains a single number that corresponds to the activity performed for the corresponding row of the file *./UCI HAR Dataset/X_test.txt*.
+
+Next, column headings for each feature are added to the data frame *X\_data*.
+
+Then, test data is read from the file *./UCI HAR Dataset/X\_test.txt* into an R data frame.  Each row of this file represents a vector of 561 features.  
+
+Next, subject ids are read from *./UCI HAR Dataset/subject\_test.txt* into an R data frame called *subject\_data*.  Each row of this dataset contains a single number that corresponds to the subject, or participant, from whom the data was collected.
+
+Then, a column containing the textual activity label corresponding to the activity id in each row in the data frame y_data.
+
+Next, column headings *ActivityID* and *ActivityLabel* are added to the data frame *y\_data*.
+
+Next, a column heading *SubjectID* is added to the data frame *subject\_data*.
+
+Then, the data frames *y\_data*, *subject\_data*, and *X\_data*, are combined column-wise using the R function *cbind*.
+
+The resulant data frame is called *test_data*.
+
+Next, a similar data frame called *train_data* is created from the following files by repeating the previous steps.
+
+- X_train.txt
+- y_train.txt
+- subject_train.txt
+
+The data frames *test_data* and *train_data* are combined row-wise into a data frame called *data* using the R function *rbind*.
+
+Next, the R function *melt* from the *rshape2* package is used to convert the columnar data frame *data* into a row-oriented data frame with each row containing a SubjectID, ActivityID, ActivityLabel, FeatureLabel, and numerical value.
+
+The *mean* operator of the function *dcast* is then used to aggregate the numerical values in the data frame *data*.  This computes the mean of each sensor reading for each participant by activity.
+
+The resultant dataset is written to file using the *write.table* function with the row names omitted.
