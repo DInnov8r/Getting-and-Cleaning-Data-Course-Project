@@ -1,4 +1,5 @@
-#### Getting and Cleaning Data Course Project
+Getting and Cleaning Data Course Project
+----------------------------------------
 
 This project creates a tidy dataset from smartphone sensor data from The Machine Learning Repository at The University of California Irvine (UCI). The Human Activity Recognition database was built from the recordings of 30 subjects performing activities of daily living while carrying a waist-mounted smartphone with embedded inertial sensors.
 
