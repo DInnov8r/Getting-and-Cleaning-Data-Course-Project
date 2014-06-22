@@ -1,4 +1,4 @@
-CodeBook for the tidy dataset
+CodeBook for The Tidy Dataset
 =============================
 
 Data Source
@@ -123,4 +123,13 @@ The algorithms in run_analysis.R perform the following steps to transform and ul
 4. Appropriately label the data set with descriptive activity names.
 5. Create a second, independent tidy data set with the average of each variable for each activity and each subject.
 
+./UCI HAR Dataset/activity_labels.txt
+./UCI HAR Dataset/features.txt
 
+X_test.txt
+y_test.txt
+subject_test.txt
+
+X_train.txt
+y_train.txt
+subject_train.txt
